@@ -34,7 +34,15 @@ namespace SwinburneAdventure
             _items.Remove(item);
         }
 
-
+        public Item LastItem()
+        {
+            if (_items.Count!=0)
+            {
+            return _items[_items.Count - 1];
+            }
+            else
+            {return null;}
+        }
         public Item Take(string id)
         {
             Item itmremove = null;

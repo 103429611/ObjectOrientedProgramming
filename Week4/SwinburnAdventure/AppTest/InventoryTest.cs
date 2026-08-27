@@ -6,14 +6,15 @@ public class InventoryTest
 {
 
     public Inventory inventory;
-
+    private Item item1; 
+    private Item item2;
     
     [SetUp]
     public void Setup()
     {
         inventory = new Inventory();
-        Item item1 = new Item(new string[] { "item1", "first item" }, "Item 1", "This is the first item.");
-        Item item2 = new Item(new string[] { "item2", "second item" }, "Item 2", "This is the second item.");
+        item1 = new Item(new string[] { "item1", "first item" }, "Item 1", "This is the first item.");
+        item2 = new Item(new string[] { "item2", "second item" }, "Item 2", "This is the second item.");
         inventory.Put(item1);
         inventory.Put(item2);
     }
@@ -48,6 +49,17 @@ public class InventoryTest
     [Test]
     public void TestItemList()
     {
-        Console.WriteLine(inventory.ItemList);
+        string result = inventory.ItemList;
+        Assert.That(result, Is.EqualTo("Item 1 item1\nItem 2 item2\n"));
+
+    }
+
+    [Test]
+    public void LastItemTest()
+    {
+    Assert.That(inventory.LastItem(), Is.EqualTo(item2));
+    inventory.Remove(item1);
+    inventory.Remove(item2);
+    Assert.That(inventory.LastItem(),Is.EqualTo(null));
     }
 }

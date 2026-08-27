@@ -8,7 +8,7 @@ namespace ShapeDrawer
         public static void Main()
         {
             Window window = new Window("Shape Drawer", 800, 600);
-            Shape myShape = new Shape(200);
+            Shape myShape = new Shape(111); //103429611
 
 
 
@@ -20,6 +20,7 @@ namespace ShapeDrawer
                 {
                     myShape.X = SplashKit.MouseX();
                     myShape.Y = SplashKit.MouseY();
+                    myShape.Color = Color.Red;
                 }
                 if(SplashKit.MouseClicked(MouseButton.RightButton))
                 {
