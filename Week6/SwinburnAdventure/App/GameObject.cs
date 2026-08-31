@@ -3,7 +3,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Serialization.Formatters;
 using System.Threading.Channels;
 
-namespace SwinburneAdventureWk5
+namespace SwinburneAdventure
 {
     public abstract class GameObject : IdentifiableObject
     {

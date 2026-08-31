@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using NUnit.Framework.Interfaces;
-using SwinburneAdventureWk5;
-namespace SwinburneAdventureWk5;
+using SwinburneAdventure;
+namespace SwinburneAdventure;
 public class IdentifiableObjectTest
 {
  

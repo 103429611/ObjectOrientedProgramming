@@ -2,7 +2,7 @@ using System.Net.NetworkInformation;
 using System.Runtime.Serialization.Formatters;
 using System.Threading.Channels;
 
-namespace SwinburneAdventureWk5
+namespace SwinburneAdventure
 {
     public class IdentifiableObject
     {

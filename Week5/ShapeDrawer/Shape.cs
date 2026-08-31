@@ -60,7 +60,10 @@ namespace ShapeDrawer
         }
         public void Draw()
         {
+           if(_selected == true)
+           {DrawOutLine();}
            SplashKit.FillRectangle(_color, _x, _y, _width, _height); 
+
         }
 
         public bool Selected
@@ -75,7 +78,7 @@ namespace ShapeDrawer
        
         public void DrawOutLine()
         {
-            SplashKit.FillRectangle(Color.Black, _x-13, _y-13, _width+13, _height+13);
+            SplashKit.FillRectangle(Color.Black, _x-5+1, _y-5+1, _width+5+1, _height+5+1);
         }
 
     }

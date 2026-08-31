@@ -1,4 +1,4 @@
-namespace SwinburneAdventureWk5
+namespace SwinburneAdventure
 {
     
     public class Item : GameObject

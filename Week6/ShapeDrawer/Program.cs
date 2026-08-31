@@ -9,6 +9,7 @@ namespace ShapeDrawer
         public static void Main()
         {
             Window window = new Window("Shape Drawer", 800, 600);
+            //Shape myShape = new Shape(200);
 
             Drawing myDrawing = new Drawing();
 
@@ -18,30 +19,28 @@ namespace ShapeDrawer
             {
                 SplashKit.ProcessEvents();
                 SplashKit.ClearScreen();
-
                 if(SplashKit.MouseClicked(MouseButton.LeftButton))
                 {
-
+                    //myShape.X = SplashKit.MouseX();
+                    //myShape.Y = SplashKit.MouseY();
                     Point2D mPos = SplashKit.MousePosition();
-                    myDrawing.AddShape(new Shape(100, mPos.X, mPos.Y));
+                    myDrawing.AddShape(new MyRectangle(100, mPos.X, mPos.Y));
                 }
                 if(SplashKit.MouseClicked(MouseButton.RightButton))
                 {
-                    myDrawing.SelectedShapeAt(SplashKit.MousePosition());
+                    //myDrawing.SelectedShapeAt(SplashKit.MousePosition());
+                    //myDrawing.RemoveShape();
                 }
-                if(SplashKit.KeyTyped(KeyCode.BackspaceKey)||SplashKit.KeyTyped(KeyCode.DeleteKey))
+
+                //if(SplashKit.KeyDown(KeyCode.SpaceKey) && myShape.IsAt(SplashKit.MousePosition()))
                 {
-                    foreach (Shape s in myDrawing.SelectedShapes)
-                    {
-                        myDrawing.RemoveShape(s);
-                    }                    
-                }
-                if(SplashKit.KeyTyped(KeyCode.SpaceKey))
-                {   
-                   myDrawing.Background = SplashKit.RandomColor();
+                   // myShape.Color = SplashKit.RandomColor();
+                    //SplashKit.RefreshScreen();
+                    //SplashKit.ClearScreen();
+                  // myShape.Draw();
                 }
                 myDrawing.Draw();
-
+                //myShape.Draw();
                 SplashKit.RefreshScreen();
             } while (!window.CloseRequested);
         }

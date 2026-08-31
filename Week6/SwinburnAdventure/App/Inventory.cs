@@ -2,7 +2,7 @@ using System.Net.NetworkInformation;
 using System.Runtime.Serialization.Formatters;
 using System.Threading.Channels;
 
-namespace SwinburneAdventureWk5
+namespace SwinburneAdventure
 {
     public class Inventory
     {
@@ -34,16 +34,7 @@ namespace SwinburneAdventureWk5
             _items.Remove(item);
         }
 
-        public Item LastItem()
-        {
-            if (_items.Count!=0)
-            {
-            return _items[_items.Count - 1];
-            }
-            else
-            {return null;}
-        }
-        
+
         public Item Take(string id)
         {
             Item itmremove = null;

@@ -1,3 +1,4 @@
+
 using SplashKitSDK;
 
 namespace ShapeDrawer
@@ -19,7 +20,7 @@ namespace ShapeDrawer
             _shapes = new List<Shape>();
         }
 
-        public List<Shape> SelectedShapes
+        public List<Shape> selectedShapes
         {
             get
             {
