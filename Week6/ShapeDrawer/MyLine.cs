@@ -3,33 +3,34 @@ using SplashKitSDK;
 
 namespace ShapeDrawer{
 
-    public class MyRectangle : Shape
+    public class MyLine : Shape
     {
-
-    public MyRectangle() 
+    private float _endX;
+    private float _endY;
+    public MyLine() 
         {
-            _color = Color.Green;
+            _color = Color.Red;
             _x = 0.0f;
             _y = 0.0f;
             _width = 100 + 11;
-            _height = 100 + 11;
+            _height = 2;
         }
-    public MyRectangle(Color color, float x, float y, int width, int height) : base(color) 
+    public MyLine(Color color, float startX, float startY, int endX, int endY) : base(color) 
         {
-            _x = x;
-            _y = y;
-            _width = width;
-            _height = height;
+            _x = startX;
+            _y = startY;
+            _endX = endX;
+            _endY = endY;
         }
-    public int Width
+    public float EndX
         {
-            get {return _width;}
-            set {_width = value;}
+            get {return _endX;}
+            set {_endX = value;}
         }
-    public int Height
+    public float EndY
         {
-            get {return _height;}
-            set {_height = value;}
+            get {return _endY;}
+            set {_endY = value;}
         }
     public override void Draw()
         {

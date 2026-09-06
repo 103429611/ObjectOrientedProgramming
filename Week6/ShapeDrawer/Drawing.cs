@@ -20,7 +20,7 @@ namespace ShapeDrawer
             _shapes = new List<Shape>();
         }
 
-        public List<Shape> selectedShapes
+        public List<Shape> SelectedShapes
         {
             get
             {

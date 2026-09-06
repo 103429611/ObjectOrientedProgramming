@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.Marshalling;
 using System.Xml;
 using SplashKitSDK;
 namespace ShapeDrawer
@@ -12,19 +13,10 @@ namespace ShapeDrawer
 
         protected bool _selected;
 
-    public Shape()
-        {
-            
+    public Shape() : this(Color.Yellow)
+        {    
         }
-    public Shape(int param)
-    {
-        _color = Color.Azure;
-        _x = 0.0f;
-        _y = 0.0f;
-        //_width = param;
-        //_height = param;
-        _selected = false;
-    }
+
     public Shape(Color color)
         {
             _color = color;
@@ -32,15 +24,7 @@ namespace ShapeDrawer
             _y = 0.0f;
             _selected = false; 
         }
-    public Shape(int param, double iX, double iY)
-    {
-        _color = Color.Azure;
-        _x = (float)iX;
-        _y = (float)iY;
-        _width = param;
-        _height = param;
-        _selected = false;
-    }
+
     public Color Color
     {
         get{return _color;}
@@ -58,20 +42,9 @@ namespace ShapeDrawer
             set {_y = value;}
         }
 
-        //public int Width
-        //{
-        //    get {return _width;}
-        //    set {_width = value;}
-        //}
-        // public int Height
-        //{
-        //    get {return _height;}
-        //    set {_height = value;}
-        //}
         public abstract void Draw();
-        //{
-           //SplashKit.FillRectangle(_color, _x, _y, _width, _height); 
-        //}
+
+       public abstract void DrawOutLine();
 
         public bool Selected
         {
@@ -79,14 +52,8 @@ namespace ShapeDrawer
             set {_selected = value;}
         }
         public abstract bool IsAt(Point2D pt);
-        //{
-        //   return (pt.X >= _x) && (pt.X <= _x + _width) && (pt.Y >= _y) && (pt.Y <= _y + _height);
-        //}
+
        
-       public abstract void DrawOutLine();
-        //{
-        //    SplashKit.FillRectangle(Color.Black, _x-13, _y-13, _width+13, _height+13);
-        //}
 
     }
 }
