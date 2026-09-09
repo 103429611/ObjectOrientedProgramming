@@ -31,12 +31,12 @@ namespace ShapeDrawer
         set{_color = value;}
     }
     
-    public float X
+    public virtual float X
         {
             get {return _x;}
             set {_x = value;}
         }
-            public float Y
+    public virtual float Y
         {
             get {return _y;}
             set {_y = value;}

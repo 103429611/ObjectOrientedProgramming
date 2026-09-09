@@ -21,7 +21,6 @@ namespace ShapeDrawer
 
             ShapeKind kindToAdd = ShapeKind.Circle;
 
-
             do
             {
                 SplashKit.ProcessEvents();
