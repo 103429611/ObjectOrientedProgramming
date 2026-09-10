@@ -51,6 +51,14 @@ namespace ShapeDrawer
             get {return _selected;}
             set {_selected = value;}
         }
+        
+        public void DisplayXY()
+        {
+            string X = _x.ToString();
+            string Y = _y.ToString();
+            SplashKit.DrawText("x= " + X + ", y= " + Y,Color.Black, _x,_y);
+        }
+
         public abstract bool IsAt(Point2D pt);
 
        

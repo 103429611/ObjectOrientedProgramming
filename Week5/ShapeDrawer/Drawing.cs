@@ -7,10 +7,8 @@ namespace ShapeDrawer
         private readonly List<Shape> _shapes;
         private Color _background;
 
-        public Drawing()
+        public Drawing() : this(Color.White)
         {
-            _background = Color.White;
-            _shapes = new List<Shape>();
         }
 
         public Drawing(Color background)

@@ -5,15 +5,12 @@ namespace ShapeDrawer{
 
     public class MyRectangle : Shape
     {
-
-    public MyRectangle() 
+    
+    public MyRectangle() : this(Color.Green, 0.0f, 0.0f, 100+11, 100+11)
         {
-            _color = Color.Green;
-            _x = 0.0f;
-            _y = 0.0f;
-            _width = 100 + 11;
-            _height = 100 + 11;
+        
         }
+    
     public MyRectangle(Color color, float x, float y, int width, int height) : base(color) 
         {
             _x = x;
