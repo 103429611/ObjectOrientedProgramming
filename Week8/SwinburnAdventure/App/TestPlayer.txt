@@ -1,4 +1,4 @@
 James
 Explorer
-A silver hat (silver),A Torch (light)
+A Torch (light),A silver hat (silver)
 Your name is John

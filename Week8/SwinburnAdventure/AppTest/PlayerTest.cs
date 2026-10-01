@@ -49,7 +49,7 @@ public class PlayerTest
     [Test]
     public void PlayerFullDescription()
     {
-        Assert.That(_testPlayer.FullDescription, Is.EqualTo("You are James an Explorer\nYou are carrying:\nA silver hat (silver)\nA Torch (light)\n"));
+        Assert.That(_testPlayer.FullDescription, Is.EqualTo("You are James an Explorer\nYou are carrying:\nA silver hat (silver),A Torch (light)"));
     }
 
 }
