@@ -36,5 +36,7 @@ namespace SwinburneAdventureWk9
             get {return "In the " + Name + " you can see:\n" + Inventory.ItemList;}
         }
 
+        
+
     }
 }

@@ -72,5 +72,13 @@ namespace SwinburneAdventureWk9
             }
         }
 
+        public int IdentCount
+        {
+            get
+            {
+                return _identifiers.Count;
+            }
+        }
+
     }
 }
