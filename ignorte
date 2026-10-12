@@ -1,0 +1,52 @@
+using SwinAdventure;
+using System;
+
+    public class LookCommandTests
+    {
+        private Item _testItem;
+        private Player _testPlayer;
+        private Bag _testMoneyBag;
+        private LookCommand _testLookCommand;
+
+        [SetUp]
+        public void Setup()
+        {
+            _testLookCommand = new LookCommand(new string[] { "" });
+            _testPlayer = new Player("Mike", "a student");
+
+            _testItem = new Item(new string[] { "gem", "Ruby" }, "A Ruby", "A bright Pink ruby");
+            _testMoneyBag = new Bag(new string[] { "bag", "money" }, "Money Bag", "A bag that contains Valuables");
+
+            _testPlayer.Inventory.Put(_testItem);
+        }
+        [Test]
+        public void LookAtPlayer()
+        {
+            Assert.That(_testLookCommand.Execute(_testPlayer, new string[] { "look", "at", "inventory" }), Is.EqualTo(_testPlayer.FullDescription));
+        }
+        [Test]
+        public void LookAtItem()
+        {
+        Assert.That(_testLookCommand.Execute(_testPlayer, new string[] { "look", "at", "gem", "in", "inventory" }), Is.EqualTo(_testItem.FullDescription));
+    }
+    [Test]
+        public void LookAtNothing()
+        {
+        _testPlayer.Inventory.Take("gem");
+        Assert.That(_testLookCommand.Execute(_testPlayer, new string[] { "look", "at", "gem", "in", "inventory" }), Is.EqualTo("I can't find the gem"));
+
+    }
+    [Test]
+        public void LookAtItemInPlayer()
+        {
+        Assert.That(_testLookCommand.Execute(_testPlayer, new string[] { "look", "at", "gem", "in", "me" }), Is.EqualTo(_testItem.FullDescription));
+    }
+
+    [Test]
+        public void LookAtItemInBag()
+        {
+            _testPlayer.Inventory.Put(_testMoneyBag);
+            _testMoneyBag.Inventory.Put(_testItem);
+            Assert.That(_testLookCommand.Execute(_testPlayer, ["look", "at", "gem", "in", "bag"]) == _testItem.FullDescription);
+ 
+        }
