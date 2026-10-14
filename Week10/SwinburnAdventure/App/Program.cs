@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace SwinburneAdventureWk10
 {
@@ -6,7 +7,7 @@ public class Program{
     public static void Main(string[] args)
     {
         Player _userPlayer; 
-        Console.WriteLine("Welcome, Enter a Player name [length of 1]");
+        Console.WriteLine("Welcome, Enter a Player name [First name]");
         string name = Console.ReadLine();
         Console.WriteLine("Enter a description for your player");
         string desc = Console.ReadLine();
