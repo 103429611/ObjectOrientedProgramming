@@ -21,22 +21,23 @@ namespace ShapeDrawer
                 {
                     Shape s;
                     string kind = reader.ReadLine(); 
+                    float scaleMultiplier = scaleFactor / 100.0f;
                     switch(kind)
                     {
                         case "Rectangle":
                             Color rcolor = reader.ReadColor();
-                            float rx = reader.ReadInteger();
-                            float ry = reader.ReadInteger();
-                            int rwidth = reader.ReadInteger() - scaleFactor;
-                            int rheight = reader.ReadInteger() - scaleFactor;
+                            float rx = reader.ReadSingle() * scaleMultiplier;
+                            float ry = reader.ReadSingle() * scaleMultiplier;
+                            float rwidth = reader.ReadSingle() * scaleMultiplier;
+                            float rheight = reader.ReadSingle() * scaleMultiplier;
                             s = new MyRectangle(rcolor, rx, ry, rwidth, rheight);
                             break;
                         case "Circle":
                             Color ccolor = reader.ReadColor();
-                            float cx = reader.ReadInteger();
-                            float cy = reader.ReadInteger();
-                            int cradius = reader.ReadInteger();
-                            if (cradius <=10)
+                            float cx = reader.ReadSingle();
+                            float cy = reader.ReadSingle();
+                            float cradius = reader.ReadSingle();
+                            if (cradius >=  10)
                             {
                                 cradius -= scaleFactor;
                             }
@@ -49,10 +50,10 @@ namespace ShapeDrawer
                             break;
                         case "Line":
                             Color lcolor = reader.ReadColor();
-                            float lx = reader.ReadInteger();
-                            float ly = reader.ReadInteger();
-                            float lendX = reader.ReadInteger() - scaleFactor;
-                            float lendY = reader.ReadInteger() - scaleFactor;
+                            float lx = reader.ReadSingle() - scaleFactor;
+                            float ly = reader.ReadSingle() - scaleFactor;
+                            float lendX = reader.ReadSingle() - scaleFactor;
+                            float lendY = reader.ReadSingle() - scaleFactor;
                             s = new MyLine(lcolor, lx,ly,lendX,lendY);
                             break;
                         default: throw new InvalidDataException("Unknown shape kind " + kind);

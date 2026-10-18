@@ -27,6 +27,9 @@ namespace ShapeDrawer
                 SplashKit.ProcessEvents();
                 SplashKit.ClearScreen();
 
+                SplashKit.DrawText("Hello",SplashKitSDK.Color.Black, 100,100);
+                Console.WriteLine("Hello");
+
                 if(SplashKit.KeyTyped(KeyCode.RKey))
                 {
                     kindToAdd = ShapeKind.Rectangle;
@@ -119,7 +122,7 @@ namespace ShapeDrawer
                 {
                      try
                     {
-                        int scale = Random.Shared.Next(10);   
+                        int scale = Random.Shared.Next(95, 99);   
                         myDrawing.Save("ScaledDrawing.txt");
                         SplashKit.ClearScreen();
                         myDrawing = ScaleDown.LoadScaled("ScaledDrawing.txt",scale);
@@ -127,6 +130,13 @@ namespace ShapeDrawer
                     {
                         Console.Error.WriteLine("Error Reading File", e.Message);
                     }
+                }
+
+                if(SplashKit.KeyTyped(KeyCode.QKey))
+                {
+                    myDrawing.RemoveAllShapes();
+                    RandomShapes.DrawRandomShapes(myDrawing);
+
                 }
 
                 myDrawing.Draw();

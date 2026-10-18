@@ -7,24 +7,24 @@ namespace ShapeDrawer{
     public class MyRectangle : Shape
     {
     
-    public MyRectangle() : this(Color.Green, 0.0f, 0.0f, 100+11, 100+11)
+    public MyRectangle() : this(Color.Green, 0.0f, 0.0f, 35, 35)
         {
         
         }
     
-    public MyRectangle(Color color, float x, float y, int width, int height) : base(color) 
+    public MyRectangle(Color color, float x, float y, float width, float height) : base(color) 
         {
             _x = x;
             _y = y;
             _width = width;
             _height = height;
         }
-    public int Width
+    public float Width
         {
             get {return _width;}
             set {_width = value;}
         }
-    public int Height
+    public float Height
         {
             get {return _height;}
             set {_height = value;}

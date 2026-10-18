@@ -11,8 +11,8 @@ namespace ShapeDrawer
         protected Color _color;
         protected float _x;
         protected float _y;
-        protected int _width;
-        protected int _height;
+        protected float _width;
+        protected float _height;
 
         protected bool _selected;
 
@@ -73,8 +73,8 @@ namespace ShapeDrawer
        public virtual void LoadFrom(StreamReader reader)
         {
             _color = reader.ReadColor();
-            _x = reader.ReadInteger();
-            _y = reader.ReadInteger();
+            _x = reader.ReadSingle();
+            _y = reader.ReadSingle();
 
         }
 

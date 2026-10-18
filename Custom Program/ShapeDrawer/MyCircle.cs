@@ -6,19 +6,19 @@ namespace ShapeDrawer{
 
     public class MyCircle : Shape
     {
-        private int _radius;
+        private float _radius;
 
     public MyCircle() : this(Color.Blue, 50 + 11)
     {
 
     }
 
-    public MyCircle(Color color, int radius)  : base(color) 
+    public MyCircle(Color color, float radius)  : base(color) 
         {
             _color = color;
             _radius = radius;
         }
-        public MyCircle(Color color, float x, float y, int radius)  : base(color) 
+        public MyCircle(Color color, float x, float y, float radius)  : base(color) 
         {
             _color = color;
             _x = x;
@@ -26,7 +26,7 @@ namespace ShapeDrawer{
             _radius = radius;
         }
 
-    public int Radius
+    public float Radius
         {
             get {return _radius;}
             set {_radius = value;}
