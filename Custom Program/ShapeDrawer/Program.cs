@@ -27,8 +27,7 @@ namespace ShapeDrawer
                 SplashKit.ProcessEvents();
                 SplashKit.ClearScreen();
 
-                SplashKit.DrawText("Hello",SplashKitSDK.Color.Black, 100,100);
-                Console.WriteLine("Hello");
+                
 
                 if(SplashKit.KeyTyped(KeyCode.RKey))
                 {
@@ -72,17 +71,22 @@ namespace ShapeDrawer
 
                         myDrawing.AddShape(newShape);
                 }
+
+                // Right clicking a shape will select the shape and outline it
                 if(SplashKit.MouseClicked(MouseButton.RightButton))
                 {
                     myDrawing.SelectedShapeAt(SplashKit.MousePosition());
                     //myDrawing.RemoveShape();
                 }
+
+                // Pressing "A" Will put the name "Ashley" on screen using a number of shapes as defined by Ashley.cs
                 if(SplashKit.KeyTyped(KeyCode.AKey))
                 {
                     myDrawing.RemoveAllShapes();
                     Ashley.DrawAshley(myDrawing);
                 }
                  
+                // Pressing Backspace or Delete will remove the selected shapes
                 if(SplashKit.KeyTyped(KeyCode.BackspaceKey)||SplashKit.KeyTyped(KeyCode.DeleteKey))
                 {
                     foreach (Shape s in myDrawing.SelectedShapes)
@@ -91,11 +95,13 @@ namespace ShapeDrawer
                     }                    
                 }
 
+                // Pressing Spacebar will randomise the background color
                 if(SplashKit.KeyTyped(KeyCode.SpaceKey))
                 {   
                    myDrawing.Background = SplashKit.RandomColor();
-                   
                 }
+
+                // Pressing "S" Will save the current drawing to file "Drawing.txt"
                 if(SplashKit.KeyTyped(KeyCode.SKey))
                 {
                     try
@@ -107,6 +113,7 @@ namespace ShapeDrawer
                     }
                 }
 
+                // Pressing "O" Will load in the saved drawings from "Drawing.txt"
                 if(SplashKit.KeyTyped(KeyCode.OKey))
                 {
                      try
@@ -118,6 +125,7 @@ namespace ShapeDrawer
                     }
                 }
 
+                // Pressing Down arrow will scale down the shapes on screen between 1-5%
                 if(SplashKit.KeyTyped(KeyCode.DownKey))
                 {
                      try
@@ -132,12 +140,30 @@ namespace ShapeDrawer
                     }
                 }
 
+                // Pressing Up arrow will scale up the shapes on screen between 5 and 10%
+                if(SplashKit.KeyTyped(KeyCode.UpKey))
+                {
+                     try
+                    {
+                        int scale = Random.Shared.Next(105, 110);   
+                        myDrawing.Save("ScaledDrawing.txt");
+                        SplashKit.ClearScreen();
+                        myDrawing = ScaleDown.LoadScaled("ScaledDrawing.txt",scale);
+                    } catch (Exception e)
+                    {
+                        Console.Error.WriteLine("Error Reading File", e.Message);
+                    }
+                }
+
+                // Pressing "Q" Will draw a random number of shapes (between 2-15) with random size, location and color
                 if(SplashKit.KeyTyped(KeyCode.QKey))
                 {
                     myDrawing.RemoveAllShapes();
                     RandomShapes.DrawRandomShapes(myDrawing);
 
                 }
+              
+
 
                 myDrawing.Draw();
 
