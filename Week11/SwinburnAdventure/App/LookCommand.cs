@@ -38,6 +38,7 @@ namespace SwinburneAdventureWk11
                     }
                     else return "Unsure what you want to look, try command look at <item>";
                 }
+
             }
             return "Look command has an invalid syntax: try something like 'look at <item> in <container>";
         }
@@ -46,7 +47,7 @@ namespace SwinburneAdventureWk11
             GameObject obj = p.Locate(containerId);
             if(obj == null)
             {
-                obj = p.Location.locate(containerId); 
+                obj = p.Location.Locate(containerId); 
                 if(obj == null)
                 {
                     return null;

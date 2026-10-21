@@ -14,7 +14,6 @@ namespace SwinburneAdventureWk11
         public Player(string name, string desc): base(new string [] {"me", "Inventory"}, name, desc)
         {
             _inventory = new Inventory();
-            _location = new Location();
         }
         public Inventory Inventory
         {

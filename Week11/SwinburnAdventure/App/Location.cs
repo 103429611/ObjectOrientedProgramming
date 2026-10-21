@@ -15,7 +15,7 @@ namespace SwinburneAdventureWk11
         }
         public void Connected(Path path)
         {
-            _paths.add(path);
+            _paths.Add(path);
         }
         public GameObject Locate(string id)
         {
@@ -54,16 +54,21 @@ namespace SwinburneAdventureWk11
                 {
                     nameDescription= "unknown location description";
                 }
-                if(_inventory != null && _inventory.Itemlist != "")
+                if(_inventory != null && _inventory.ItemList != null)
                 {
-                    inventoryDescription=_inventory.Itemlist;
+                    inventoryDescription=_inventory.ItemList;
+                }
+                else
+                {
+                    inventoryDescription = "there are no items at this location.";
                 }
 
-                for(int i = 0; i <= _paths.Count; i++)
+
+                for(int i = 0; i < _paths.Count; i++)
                 {
-                    pathDescription.Append(_path[i].FullDescription + "\n");
+                    pathDescription += _paths[i].FullDescription + "\n";
                 }
-                return "You are in " + nameDescription + "\n" + "Here you can see the item list of " + inventoryDescription + pathDescription + "\n";
+                return "You are in " + nameDescription + "\n" + "Here you can see " + inventoryDescription + " " + pathDescription;
 
             }
         }

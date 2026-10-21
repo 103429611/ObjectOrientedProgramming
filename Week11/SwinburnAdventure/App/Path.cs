@@ -2,8 +2,8 @@ namespace SwinburneAdventureWk11
 {
     public class Path:GameObject
     {
-        private Location _destination;
-        public Path(string[] ids, string name, string desc): base(ids, name, desc)
+        public Location _destination;
+        public Path(string[] ids, string name, string desc, Location dest): base(ids, name, desc)
         {
             _destination = dest;
         }
