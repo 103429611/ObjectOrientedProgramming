@@ -42,8 +42,8 @@ namespace ShapeDrawer
                             break;
                         case "Line":
                             Color lcolor = reader.ReadColor();
-                            float lx = reader.ReadSingle();
-                            float ly = reader.ReadSingle();
+                            float lx = reader.ReadSingle() * scaleMultiplier;
+                            float ly = reader.ReadSingle() * scaleMultiplier;
                             float lendX = reader.ReadSingle() * scaleMultiplier;
                             float lendY = reader.ReadSingle() * scaleMultiplier;
                             s = new MyLine(lcolor, lx,ly,lendX,lendY);
