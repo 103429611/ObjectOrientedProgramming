@@ -83,7 +83,6 @@ public class Program{
             bool finished = false;
             LookCommand cmd = new LookCommand([]);
             MoveCommand moveCmd = new MoveCommand([]);
-            TakeCommand takeCmd = new TakeCommand([]);
             while(!finished)
             {
                 Console.WriteLine("Enter a Command");
@@ -107,10 +106,6 @@ public class Program{
                 if (firstWord == "where")
                 {
                     Console.WriteLine("You are now at " + _userPlayer.Location.ShortDescription);
-                }
-                if (firstWord == "take")
-                {
-                    Console.WriteLine(takeCmd.Execute(_userPlayer, split));
                 }
 
             }

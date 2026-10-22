@@ -16,6 +16,10 @@ namespace SwinburneAdventureWk11
         public override string Execute(Player p, string[] text)
         {
             IHaveInventory container = p;
+            if(text.Length == 1 && text[0] == "look")
+            {
+                return p.Location.FullDescription;
+            }
             if(text.Length == 3 || text.Length == 5)
             {
                 if(text[0].ToLower() =="look")

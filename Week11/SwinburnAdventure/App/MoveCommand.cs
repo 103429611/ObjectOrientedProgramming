@@ -2,7 +2,7 @@ namespace SwinburneAdventureWk11
 {
     public class MoveCommand: Command
     {
-        public MoveCommand(string[] ids): base(["move", "go", "head", "leave"])
+        public MoveCommand(string[] ids): base(ids)
         {
             
         }

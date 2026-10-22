@@ -75,10 +75,37 @@ public class Program{
                     finished =true;
                     break;
                 }
-                string[] split = command.Split(" ");
+                string[] split = command.Split(' ', '-');
                 Console.WriteLine(cmd.Execute(_userPlayer, split));
+                StreamWriter writer = new StreamWriter("commands.txt", true);
+                writer.WriteLine(command);
+                writer.Close();
+            } 
 
+            Console.WriteLine("Would you like to print the command history");
+            string _history = Console.ReadLine();
+            if(_history.ToLower() == "yes" || _history.ToLower() == "y")
+            {
+                StreamReader reader = new StreamReader("commands.txt");
+                string line;
+                if((line = reader.ReadLine()) != null)
+                {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                
+                        Console.WriteLine(line + "\n");
+                    }
+                    reader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("No history to write");
+                }
             }
+
+
+            
+
         
         //StreamWriter writer = new StreamWriter("TestPlayer.txt");
         //   try
